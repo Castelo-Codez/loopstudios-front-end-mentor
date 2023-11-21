@@ -1,0 +1,81 @@
+@use "./_partial-colors";
+
+%hoverEffect {
+    &::after {
+        position: absolute;
+        content: "";
+        bottom: -5px;
+        left: 0;
+        height: 2px;
+        background-color: partial-colors.$White;
+        transition: 0.3s;
+        width: 0%;
+    }
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+footer {
+    padding: 80px 0px;
+    background-color: partial-colors.$black;
+    .container {
+        .top {
+            margin-bottom: 40px;
+            > a {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 40px;
+            }
+            ul {
+                li {
+                    margin-bottom: 10px;
+                    a {
+                        position: relative;
+                        text-align: center;
+                        display: block;
+                        width: fit-content;
+                        margin: auto;
+                        color: partial-colors.$White;
+                        @extend %hoverEffect;
+                    }
+                }
+            }
+        }
+        .bottom {
+            ul {
+                margin-bottom: 40px;
+                display: flex;
+                justify-content: center;
+                column-gap: 20px;
+                li {
+                    a {
+                        position: relative;
+                        display: block;
+                        width: fit-content;
+                        @extend %hoverEffect;
+                    }
+                }
+            }
+            span {
+                color: partial-colors.$VeryDarkGray;
+                display: block;
+                text-align: center;
+            }
+        }
+        @media (min-width: 992px) {
+            display: flex;
+            justify-content: space-between;
+            .top {
+                a {
+                    justify-content: flex-start;
+                }
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    column-gap: 20px;
+                }
+            }
+        }
+    }
+}

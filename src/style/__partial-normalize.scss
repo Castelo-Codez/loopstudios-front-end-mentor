@@ -1,0 +1,49 @@
+:root {
+    --main-font: "Alata", sans-serif;
+    --sec-font: "Josefin Sans", sans-serif;
+}
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+
+$grid-breakpoints: (
+    576px: 540px,
+    768px: 720px,
+    992px: 960px,
+    1200px: 1140px,
+    1400px: 1320px,
+);
+
+@each $media, $width in $grid-breakpoints {
+    @media (min-width: $media) {
+        .container {
+            width: $width;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 30px;
+}
